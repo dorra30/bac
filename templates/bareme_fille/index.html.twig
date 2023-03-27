@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BaremeFille index{% endblock %}
+
+{% block body %}
+    <h1>BaremeFille index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Performance</th>
+                <th>Valeur</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for bareme_fille in bareme_filles %}
+            <tr>
+                <td>{{ bareme_fille.id }}</td>
+                <td>{{ bareme_fille.performance }}</td>
+                <td>{{ bareme_fille.valeur }}</td>
+                <td>
+                    <a href="{{ path('app_bareme_fille_show', {'id': bareme_fille.id}) }}">show</a>
+                    <a href="{{ path('app_bareme_fille_edit', {'id': bareme_fille.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_bareme_fille_new') }}">Create new</a>
+{% endblock %}

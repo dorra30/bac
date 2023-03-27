@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DateEp index{% endblock %}
+
+{% block body %}
+    <h1>DateEp index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>Lycee</th>
+                <th>Center</th>
+                <th>Enseigant1</th>
+                <th>Enseigant2</th>
+                <th>Enseigant3</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for date_ep in date_eps %}
+            <tr>
+                <td>{{ date_ep.id }}</td>
+                <td>{{ date_ep.date ? date_ep.date|date('Y-m-d') : '' }}</td>
+                <td>{{ date_ep.lycee }}</td>
+                <td>{{ date_ep.center }}</td>
+                <td>{{ date_ep.enseigant1 }}</td>
+                <td>{{ date_ep.enseigant2 }}</td>
+                <td>{{ date_ep.enseigant3 }}</td>
+                <td>
+                    <a href="{{ path('app_date_ep_show', {'id': date_ep.id}) }}">show</a>
+                    <a href="{{ path('app_date_ep_edit', {'id': date_ep.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_date_ep_new') }}">Create new</a>
+{% endblock %}

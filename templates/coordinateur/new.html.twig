@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Coordinateur{% endblock %}
+
+{% block body %}
+    <h1>Create new Coordinateur</h1>
+
+    {{ include('coordinateur/_form.html.twig') }}
+
+    <a href="{{ path('app_coordinateur_index') }}">back to list</a>
+{% endblock %}

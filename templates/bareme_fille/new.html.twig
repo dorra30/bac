@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New BaremeFille{% endblock %}
+
+{% block body %}
+    <h1>Create new BaremeFille</h1>
+
+    {{ include('bareme_fille/_form.html.twig') }}
+
+    <a href="{{ path('app_bareme_fille_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BaremeGarcon{% endblock %}
+
+{% block body %}
+    <h1>BaremeGarcon</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ bareme_garcon.id }}</td>
+            </tr>
+            <tr>
+                <th>Performance</th>
+                <td>{{ bareme_garcon.performance }}</td>
+            </tr>
+            <tr>
+                <th>Valeur</th>
+                <td>{{ bareme_garcon.valeur }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_bareme_garcon_index') }}">back to list</a>
+
+    <a href="{{ path('app_bareme_garcon_edit', {'id': bareme_garcon.id}) }}">edit</a>
+
+    {{ include('bareme_garcon/_delete_form.html.twig') }}
+{% endblock %}

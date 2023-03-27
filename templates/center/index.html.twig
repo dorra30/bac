@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Center index{% endblock %}
+
+{% block body %}
+    <h1>Center index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for center in centers %}
+            <tr>
+                <td>{{ center.id }}</td>
+                <td>{{ center.nom }}</td>
+                <td>{{ center.adresse }}</td>
+                <td>
+                    <a href="{{ path('app_center_show', {'id': center.id}) }}">show</a>
+                    <a href="{{ path('app_center_edit', {'id': center.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_center_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Coordinateur{% endblock %}
+
+{% block body %}
+    <h1>Edit Coordinateur</h1>
+
+    {{ include('coordinateur/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_coordinateur_index') }}">back to list</a>
+
+    {{ include('coordinateur/_delete_form.html.twig') }}
+{% endblock %}
